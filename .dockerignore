@@ -1,0 +1,24 @@
+
+# Локальная сборка
+build/
+cmake-build-*/
+
+# Git
+.git/
+.github/
+
+# Настройки VS Code
+.vscode/
+
+# Сгенерированная документация
+docs/html/
+docs/latex/
+
+# Временные файлы
+*.o
+*.obj
+*.log
+*.tmp
+
+# Локальный исполняемый файл
+/matrix_calculator
