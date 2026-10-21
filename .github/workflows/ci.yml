@@ -1,0 +1,59 @@
+
+name: Matrix Calculator CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            cmake \
+            g++ \
+            libgtest-dev \
+            doxygen \
+            graphviz \
+            valgrind
+
+      - name: Configure CMake
+        run: |
+          cmake -B build -DCMAKE_BUILD_TYPE=Debug
+
+      - name: Build project
+        run: |
+          cmake --build build --parallel $(nproc)
+
+      - name: Run CTest
+        run: |
+          cd build
+          ctest --verbose --output-on-failure
+
+      - name: Check memory with Valgrind
+        run: |
+          valgrind --leak-check=full --error-exitcode=1 \
+            ./build/tests/matrix_tests
+
+      - name: Generate Doxygen documentation
+        run: |
+          doxygen Doxyfile
+
+      - name: Upload HTML documentation
+        uses: actions/upload-artifact@v4
+        with:
+          name: matrix-documentation
+          path: docs/html/

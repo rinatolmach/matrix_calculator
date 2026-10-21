@@ -1,0 +1,36 @@
+
+# Название проекта
+PROJECT_NAME           = "Matrix Calculator"
+
+# Краткое описание
+PROJECT_BRIEF          = "Библиотека для работы с матрицами"
+
+# Язык документации
+OUTPUT_LANGUAGE        = Russian
+
+# Папка для готовой документации
+OUTPUT_DIRECTORY       = docs
+
+# Папки с исходным кодом
+INPUT                  = include src
+
+# Обрабатывать вложенные папки
+RECURSIVE              = YES
+
+# Документировать все элементы
+EXTRACT_ALL            = YES
+
+# Создавать HTML-документацию
+GENERATE_HTML          = YES
+
+# Не создавать LaTeX-документацию
+GENERATE_LATEX         = NO
+
+# Использовать Graphviz
+HAVE_DOT               = YES
+
+# Графы вызовов функций
+CALL_GRAPH             = YES
+
+# Графы функций, вызывающих данную функцию
+CALLER_GRAPH           = YES

@@ -1,0 +1,24 @@
+
+# CMake
+build/
+cmake-build-*/
+
+# Скомпилированные файлы
+*.o
+*.obj
+*.exe
+*.out
+
+# Исполняемый файл
+/matrix_calculator
+
+# Сгенерированная документация
+docs/html/
+docs/latex/
+
+# Настройки редактора
+.vscode/
+
+# Временные файлы
+*.log
+*.tmp
